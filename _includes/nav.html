@@ -1,0 +1,32 @@
+{% assign pageurl = page.url %}
+{% if page.url contains "/" %}
+  {% assign pageurl = page.url | split: "/" | last %}
+{% endif %}
+{% if pageurl contains ".html" %}
+  {% assign pageurl = pageurl | remove: ".html" | downcase %}
+{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light px-0" dir="rtl">
+    <button class="navbar-toggler navbar-toggler-right custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if pageurl=='' or pageurl==nil %}active{% endif %}">
+          <a class="nav-link" href="{{site.url}}{{site.baseurl}}/">דף הבית</a>
+        </li>
+        <li class="nav-item d-xl-block d-lg-block d-none separator">|</li>
+        <li class="nav-item {% if pageurl=='about' %}active{% endif %}">
+          <a class="nav-link" href="{{site.url}}{{site.baseurl}}/about">על המופע</a>
+        </li>
+        <li class="nav-item d-xl-block d-lg-block d-none separator">|</li>
+        <li class="nav-item {% if pageurl=='critics' %}active{% endif %}">
+          <a class="nav-link" href="{{site.url}}{{site.baseurl}}/critics">תגובות וביקורת</a>
+        </li>
+        <li class="nav-item d-xl-block d-lg-block d-none separator">|</li>
+        <li class="nav-item {% if pageurl=='contact' %}active{% endif %}">
+          <a class="nav-link" href="{{site.url}}{{site.baseurl}}/contact">יצירת קשר</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
