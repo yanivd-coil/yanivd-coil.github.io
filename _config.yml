@@ -23,9 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. https://yanivd.co.il
 
 # Build settings
 markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
+highlighter: rouge
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
